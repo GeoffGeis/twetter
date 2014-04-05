@@ -7,7 +7,7 @@
     <div class="pull-left">
       <h4>Twets</h4>
     </div>
-    <%= follow_link(@user, profile_path(:username => @user.username)) if @user && @user.id != current_user.id %>
+    <%= follow_link(@user) if @user && @user.id != current_user.id %>
     <div class="clearfix"></div>
     <hr />
     <ol class="list-unstyled">
@@ -17,7 +17,7 @@
         <%= content_tag :small, "@"+twet.user.username, :class => 'text-muted pad-10 text-middle' %>
         <%= content_tag :small, twet.created_at.strftime("%b %-d"), :class => 'text-muted text-middle pull-right' %>
         <div class="clearfix"></div>
-        <%= content_tag :p, twet.content %>
+        <%= content_tag(:p, point_profiles(twet.content)) %>
       </li>
       <li><hr></li>
       <% end -%>
