@@ -1,5 +1,5 @@
 module TwetsHelper
-  def point_profiles(content)
-    content.gsub(/@(?<username>(\w+))/, '<a href="'+'\k<username>'+'">@\k<username></a>').html_safe
+  def point_profiles(twet)
+    twet.gsub(/(?<!\w)@(\w+)/) { |match| "<a href=\"#{match[1..-1]}\">#{match}</a>" }.html_safe
   end
 end
