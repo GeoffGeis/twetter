@@ -29,11 +29,11 @@ class TwetsController < ApplicationController
     @twet = current_user.twets.create(twet_params)
     if @twet.valid?
       flash[:success] = "Your twet was shared"
-      redirect_to :action => :index and return
+      redirect_to(:action => :index && return)
     else
       get_twets
       flash[:error] = "Your twet could not be saved"
-      render :action => :index and return
+      render(:action => :index && return)
     end
   end
 
