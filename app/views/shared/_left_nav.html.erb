@@ -1,6 +1,9 @@
 <div class="col-md-4">
   <ul class="nav nav-pills nav-stacked well text-left">
     <li>
+      <%= image_tag(gravatar(@user.email, 50), :class => 'pull-left img-rounded') %>
+    </li>  
+    <li>
       <%= content_tag(:strong, @user.name) %>
     </li>
     <li>
